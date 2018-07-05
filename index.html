@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="I am looking for a career where I can be
+  creative and apply my web development skills.">
+  <title>Angelle Flores &#124; Resume</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+  integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+  crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand"
+  rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="header position">
+    <header>
+      <h1>Angelle Flores</h1>
+      <div class="contact-links">
+        <a href="mailto:angjflores@gmail.com"><i class="far fa-envelope"></i></a>
+        <a href="https://github.com/angelleflores" target="_blank"><i class=
+          "fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/angelle-flores" target="_blank">
+          <i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <nav>
+        <a href="#about">About <i class="fas fa-angle-right"></i></a>
+        <a href="#work">Work Experience <i class="fas fa-angle-right"></i></a>
+        <a href="#projects">Projects <i class="fas fa-angle-right"></i></a>
+        <a href="#education">Education <i class="fas fa-angle-right"></i></a>
+      </nav>
+    </header>
+  </div>
+  <div class="main position">
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <div class="bg-img">
+          <p>I am looking for a <b>career</b> where I can be <b>creative</b><br>
+            and apply my <b>web development</b> skills.</p>
+          <p><b>Languages</b><br>that I have worked with<br>include<br><b>C#</b>,
+            <b>CSS</b>, <b>HTML</b>,<br><b>Java</b>, <b>JavaScript</b>, <b>PHP</b>,
+            <br><b>Python</b>, and <b>SQL</b>.</p>
+        </div>
+      </section>
+      <section id="work">
+        <h2>Work Experience</h2>
+        <h3>Entry Level Software Developer</h3>
+        <p>January 8, 2018 &ndash; March 8, 2018</p>
+        <p>Computer Task Group</p>
+        <p>Worked as a contractor in the IT department at Corning in Canton, NY.
+          Helped with requests that were submitted through their ticket system.
+          Helped with maintaining the database and updating their website.
+          Updated and created new documentation for the IT department to use.
+          Audited IT documents.</p>
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <a href="pets-project/index.html" target="_blank">
+          <h3>Pet Rodents Website</h3></a>
+        <p>May 31, 2018 &ndash; June 19, 2018</p>
+        <p>Displayed information about gerbils, hamsters, mice, and rats.
+          Created a fun quiz that one could take to find out which pet rodent
+          is the best choice for the person. Used <i>HTML</i>, <i>CSS</i>, and
+          <i>JavaScript</i>.</p>
+
+        <h3>Programming Languages App</h3>
+        <p>Spring 2017</p>
+        <p>Learned the basics of various programming languages (Python, C++,
+          LISP) and created an app that compared their code. Used a <i>SQLite</i>
+          database to store and retrieve code of each language.</p>
+
+        <h3>Teacher’s Aide Web Applications</h3>
+        <p>Fall 2016</p>
+        <p>Worked with a partner to develop a sample web app for students to be
+          able to submit an application for a job as a teacher’s assistant.
+          Built another web app for employers to be able to search through the
+          applications as well. Used <i>HTML</i>, <i>CSS</i>, <i>PHP</i>,
+          <i>JavaScript</i>, <i>SQL</i>, and a <i>MySQL</i> database.</p>
+      </section>
+      <section id="education">
+        <h2>Education</h2>
+        <h3>SUNY Oswego</h3>
+        <p>Spring 2015 &ndash; Spring 2017</p>
+        <p>B.A. in Information Science</p>
+        <p>GPA: 3.94</p>
+        <h4>Courses</h4>
+        <ul>
+          <li>Abstract Data Types & Programming Methodology</li>
+          <li>Database Management Systems</li>
+          <li>Human-Computer Interaction</li>
+          <li>Information Science Capstone</li>
+          <li>Intro to Scripting & Markup Languages</li>
+          <li>Mobile App Development</li>
+        </ul>
+
+        <h3>Finger Lakes Community College</h3>
+        <p>Fall 2012 &ndash; Fall 2014</p>
+        <p>A.S. in Computer Science</p>
+        <p>GPA: 4.00</p>
+        <h4>Courses</h4>
+        <ul>
+          <li>Applied Database Concepts</li>
+          <li>Data Structures I & II</li>
+          <li>Intro to C#</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <a href="AngelleFlores_Resume.pdf" download><i class="fas fa-download"></i>
+        Resume</a>
+      <p>Copyright &copy; Angelle Flores 2018</p>
+    </footer>
+  </div>
+  <button onclick="goTop()" id="topBtn" title="Go to top">
+        <i class="fas fa-angle-up"></i></button>
+  <script>
+    window.onscroll = function() {showBtn()};
+    function showBtn() {
+      if (document.documentElement.scrollTop > 20) {
+        document.getElementById("topBtn").style.display = "block";
+      } else {
+        document.getElementById("topBtn").style.display = "none";
+      }
+    }
+    function goTop() {
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Which pet rodent is the best for you?
+    Short Quiz">
+    <title>Pet Rodents - Quiz</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Varela+Round"
+    rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <h1>Pet Rodents</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="gerbils.html">Gerbils</a>
+          <a href="hamsters.html">Hamsters</a>
+          <a href="mice.html">Mice</a>
+          <a href="rats.html">Rats</a>
+          <a href="quiz.html">Quiz</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <div class="content-wrap">
+          <div class="top">
+            <img class="rounded" src="images/tan-white-hamster.jpg"
+            alt="Tan and white hamster" width="328" height="328">
+            <h2>Quiz: Which pet rodent is the best for you?</h2>
+          </div>
+          <div class="form form-width">
+            <div>
+              <p>1. How many pets would you like to take care of?</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">1</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">2 or more</button>
+            </div>
+            <div>
+              <p>2. When do you want to spend time with your pet(s)?</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">During the day</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">During the night</button>
+            </div>
+            <div>
+              <p>3. What characteristic would you like most in a pet?</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">Learns tricks</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">Enjoys sand baths</button>
+              <button type="button" name="answer3"
+              onclick="select(this)">Likes to be alone</button>
+              <button type="button" name="answer4"
+              onclick="select(this)">Lives a short life</button>
+            </div>
+            <div>
+              <p>4. Which would you prefer? A pet that...</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">Needs playtime outside of cage/tank every day</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">Does not need to be handled often</button>
+            </div>
+            <div>
+              <p>5. Which would you prefer? A pet that...</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">Rarely bites</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">Likes to run in a plastic ball</button>
+            </div>
+            <div>
+              <p>6. Which would you prefer? A pet that...</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">Likes to dig</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">Is intelligent</button>
+            </div>
+            <div>
+              <p>7. Which would you prefer? A pet that has a...</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">Long tail with hair</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">Long tail without hair</button>
+              <button type="button" name="answer3"
+              onclick="select(this)">Short tail</button>
+            </div>
+            <div>
+              <p>8. Would you want a pet that can learn its name?</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">Yes</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">Does not matter</button>
+            </div>
+            <div>
+              <p>9. Would you want a pet that loves human attention?</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">Yes</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">Not really</button>
+            </div>
+            <div>
+              <p>10. How long would you want your pet(s) to live?</p>
+              <button type="button" name="answer1"
+              onclick="select(this)">1-3 years</button>
+              <button type="button" name="answer2"
+              onclick="select(this)">2-3 years</button>
+              <button type="button" name="answer3"
+              onclick="select(this)">3-5 years</button>
+            </div>
+            <div class="next">
+              <button type="button" name="startOver"
+              onclick="reset()">Start Over</button>
+              <button type="button" id="shift" class="disabled" name="next"
+              onclick="saveAndContinue()" disabled>Next</button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer>
+      <div class="footer">
+        <p>
+          All the information stated on this website is from the following sources...
+          <ul>
+            <li><a href="http://animalrightscoalition.com/doc/gerbil_factsheet.pdf"
+              target="_blank">Gerbil Information</a></li>
+            <li><a href="http://animalrightscoalition.com/doc/hamster_factsheet.pdf"
+              target="_blank">Hamster Information</a></li>
+            <li><a href="http://www.allaboutmice.co.uk/"
+              target="_blank">Mouse Information</a></li>
+            <li><a href="http://animalrightscoalition.com/doc/rat_fact_sheet.pdf"
+              target="_blank">Rat Information</a></li>
+            <li><a href="http://www.ratfanclub.org/caresheet.html"
+              target="_blank">Rat Toys</a></li>
+          </ul>
+        </p>
+        <p>
+          Website Design Copyright &copy; Angelle Flores 2018
+        </p>
+      </div>
+    </footer>
+    <script>
+      // Variables
+      var formDivs = document.querySelector(".form.form-width").getElementsByTagName("div");
+      var numOfDivs = formDivs.length;
+      var button;
+      var buttonValue;
+      var selected = false;
+      var nextButton = document.getElementById("shift");
+      var currentQuestion;
+      // Counters
+      var gerbil = 0;
+      var hamster = 0;
+      var mouse = 0;
+      var rat = 0;
+
+      // Hide all divs between 1st and last div within the form div
+      for (var i = 0; i < numOfDivs; i++) {
+        if ((i > 0) && (i < 10)) {
+          formDivs[i].style.display = "none";
+        }
+      }
+      // Activate button
+      function activate(button) {
+        button.className = "";
+        button.disabled = false;
+      }
+      // Deactivate button
+      function deactivate(button) {
+        button.className = "disabled";
+        button.disabled = true;
+      }
+      // Stores answer button and button value
+      function storeValues(element) {
+        button = element;
+        buttonValue = element.innerHTML;
+      }
+      // Changes background of the answer button to the specified color
+      function changeBackground(color) {
+        if (color == "yellow") {
+          button.style.backgroundColor = "rgba(255,230,109,0.3)";
+          button.style.border = "0.1em solid #FFE66D";
+        } else {
+          button.style.backgroundColor = "rgba(255,107,107,0.3)";
+          button.style.border = "0.1em solid #FF6B6B";
+        }
+      }
+      /* Store button, store button value, and change background
+       when an answer button is clicked on */
+      function select(element) {
+        if (!selected) {
+          storeValues(element);
+          changeBackground("yellow");
+          selected = true;
+          activate(nextButton);
+        } else {
+          changeBackground("red");
+          storeValues(element);
+          changeBackground("yellow");
+        }
+      }
+      // Resets everything
+      function reset() {
+        selected = false;
+        deactivate(nextButton);
+        // Reset counters
+        gerbil = 0;
+        hamster = 0;
+        mouse = 0;
+        rat = 0;
+        // Hide all divs except 1st and last div
+        for (var i = 0; i < numOfDivs; i++) {
+          if ((i > 0) && (i < 10)) {
+            formDivs[i].style.display = "none";
+          } else {
+            formDivs[i].style.display = "block";
+          }
+        }
+        // Set background of all buttons to original color
+        var formButtons = document.querySelector(".form.form-width").getElementsByTagName("button");
+        var numOfButtons = formButtons.length;
+        for (var i = 0; i < numOfButtons; i++) {
+          formButtons[i].style.backgroundColor = "rgba(255,107,107,0.3)";
+          formButtons[i].style.border = "0.1em solid #FF6B6B";
+        }
+      }
+      // Finds the current question that is being displayed to the user
+      function findCurrentDiv() {
+        var numOfQuestions = numOfDivs - 1;
+        for (var i = 0; i < numOfQuestions; i++) {
+          if (formDivs[i].style.display != "none") {
+            currentQuestion = i + 1;
+            return formDivs[i];
+          }
+        }
+      }
+      // Save the selected answer
+      function saveAnswer() {
+        // Check selected answer and add to appropriate counters
+        switch(currentQuestion) {
+          case 1:
+            if (buttonValue == "1") {
+              hamster++;
+            } else {
+              gerbil++;
+              mouse++;
+              rat++;
+            }
+            break;
+          case 2:
+            if (buttonValue == "During the day") {
+              gerbil++;
+            } else {
+              hamster++;
+              mouse++;
+              rat++;
+            }
+            break;
+          case 3:
+            if (buttonValue == "Learns tricks") {
+              rat++;
+            } else if (buttonValue == "Enjoys sand baths") {
+              gerbil++;
+            } else if (buttonValue == "Likes to be alone") {
+              hamster++;
+            } else {
+              mouse++;
+            }
+            break;
+          case 4:
+            if (buttonValue == "Needs playtime outside of cage/tank every day") {
+              mouse++;
+              rat++;
+            } else {
+              gerbil++;
+              hamster++;
+            }
+            break;
+          case 5:
+            if (buttonValue == "Rarely bites") {
+              gerbil++;
+              mouse++;
+              rat++;
+            } else {
+              hamster++;
+            }
+            break;
+          case 6:
+            if (buttonValue == "Likes to dig") {
+              gerbil++;
+              hamster++;
+            } else {
+              mouse++;
+              rat++;
+            }
+            break;
+          case 7:
+            if (buttonValue == "Long tail with hair") {
+              gerbil++;
+            } else if (buttonValue == "Long tail without hair") {
+              mouse++;
+              rat++;
+            } else {
+              hamster++;
+            }
+            break;
+          case 8:
+            if (buttonValue == "Yes") {
+              rat++;
+            } else {
+              gerbil++;
+              mouse++;
+              hamster++;
+            }
+            break;
+          case 9:
+            if (buttonValue == "Yes") {
+              mouse++;
+              rat++;
+            } else {
+              gerbil++;
+              hamster++;
+            }
+            break;
+          case 10:
+            if (buttonValue == "1-3 years") {
+              mouse++;
+            } else if (buttonValue == "2-3 years") {
+              hamster++;
+              rat++;
+            } else {
+              gerbil++;
+            }
+            break;
+          default:
+            break;
+        }
+      }
+      // Constructs message to show to the user
+      function constructMessage() {
+        var message = "The pet rodents that are best for you are... ";
+        // Get the highest counter(s)
+        var highestNum = Math.max(gerbil,hamster,mouse,rat);
+        var bestOptions = new Array();
+        if (gerbil == highestNum) {
+          bestOptions.push("gerbils");
+        }
+        if (hamster == highestNum) {
+          bestOptions.push("hamsters");
+        }
+        if (mouse == highestNum) {
+          bestOptions.push("mice");
+        }
+        if (rat == highestNum) {
+          bestOptions.push("rats");
+        }
+        bestOptions.sort();
+        if (bestOptions.length == 1) {
+          message += bestOptions[0] + "!";
+        } else if (bestOptions.length == 2) {
+          message += bestOptions[0] + " and " + bestOptions[1] + "!";
+        } else if (bestOptions.length == 3) {
+          message += bestOptions[0] + ", " + bestOptions[1] + ", and " +
+          bestOptions[2] + "!";
+        } else {
+          message += bestOptions[0] + ", " + bestOptions[1] + ", " +
+          bestOptions[2] + ", and " + bestOptions[3] + "!";
+        }
+        return message;
+      }
+      // Create div with message
+      function createTopDiv(message) {
+        var p = document.createElement("p");
+        var pText = document.createTextNode(message);
+        p.appendChild(pText);
+        var topDiv = document.createElement("div");
+        topDiv.appendChild(p);
+        document.querySelector(".form.form-width").appendChild(topDiv);
+        //Style p in topDiv
+        p.style.color = "#FF6B6B";
+        p.style.fontSize = "2em";
+        p.style.margin = "0";
+        p.style.padding = "20px";
+        p.style.textAlign = "center";
+      }
+      // Create div with "Take Quiz Again!" button
+      function createBotDiv() {
+        var aButton = document.createElement("a");
+        var aText = document.createTextNode("Take Quiz Again!");
+        aButton.appendChild(aText);
+        var botDiv = document.createElement("div");
+        botDiv.appendChild(aButton);
+        document.querySelector(".form.form-width").appendChild(botDiv);
+        // Style botDiv
+        botDiv.style.textAlign = "center";
+        // Style "Take Quiz Again!" button
+        aButton.setAttribute("href", "quiz.html");
+        aButton.setAttribute("onmouseover", "addShadow(this)");
+        aButton.setAttribute("onmouseleave", "removeShadow(this)");
+        aButton.style.display = "inline-block";
+        aButton.style.margin = "20px";
+        aButton.style.padding = "10px";
+        aButton.style.textDecoration = "none";
+        aButton.style.borderRadius = "10px";
+        aButton.style.backgroundColor = "rgba(255,107,107,0.3)";
+        aButton.style.border = "0.2em solid #FF6B6B";
+        aButton.style.color = "#292F36";
+      }
+      // Adds a shadow to an element
+      function addShadow(element) {
+        element.style.boxShadow =
+        "0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)";
+      }
+      // Removes the shadow from an element
+      function removeShadow(element) {
+        element.style.boxShadow = "";
+      }
+      // Save the selected answer and display the following question
+      function saveAndContinue() {
+        var currentDiv = findCurrentDiv();
+        saveAnswer();
+        // Hide answered question
+        currentDiv.style.display = "none";
+        // Show the next question
+        currentDiv.nextElementSibling.style.display = "block";
+        selected = false;
+        deactivate(nextButton);
+        // If the user reaches the end of the quiz...
+        if (currentDiv.nextElementSibling.className == "next") {
+          // Construct message to display to the user
+          var message = constructMessage();
+          // Hide the last div containing the start over and next buttons
+          currentDiv.nextElementSibling.style.display = "none";
+          // Create div with message
+          createTopDiv(message);
+          // Create div with "Take Quiz Again!" button
+          createBotDiv();
+        }
+      }
+    </script>
+  </body>
+</html>
